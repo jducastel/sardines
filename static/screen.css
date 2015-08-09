@@ -13,7 +13,7 @@ texte: #667;
 
 body {
   background: #ddc;
-  font-family: 'Droid Serif', serif;
+  font-family: 'Droid Serif', 'Georgia', serif;
   padding: 2% 2% 5% 2%;
 }
 
@@ -34,7 +34,10 @@ header, #main .header, #main h2, #main h3, #main h4, #main h5, #main h6 {
 
 #main {
   /*margin: 2% 0;*/
-  font-family: 'Lucida grande', serif;
+  font-family: 'Lucida grande', 'Georgia', serif;
+}
+.ui.menu {
+  font-family: 'Droid Serif', 'Georgia', serif;
 }
 
 /*#main article.card header.extra.content { background: #eee; }*/
@@ -126,7 +129,7 @@ pre {
   background-color: #282c34;
   color: #abb2bf;
   padding: 0 0.3em;
-  font-size: 0.9em;
+  font-size: 0.8em;
 }
 
 /* comments */
