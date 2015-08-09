@@ -1,0 +1,236 @@
+/* theme pour pelican CSS */
+
+@import url(http://fonts.googleapis.com/css?family=Droid+Serif);
+
+/* couleurs
+
+background: #ddc;
+titre color: #997;
+sous-titre: color: #bb9;
+texte: #667;
+
+*/
+
+body {
+  background: #ddc;
+  font-family: 'Droid Serif', serif;
+  padding: 2% 2% 5% 2%;
+}
+
+#header {
+  font-size: 1.5em;
+  font-family: 'Droid Serif', serif;
+}
+#header .title {
+  color: #997;
+  font-family: 'Droid Serif', serif;
+}
+#header .subtitle {
+  color: #bb9;
+}
+header, #main .header, #main h2, #main h3, #main h4, #main h5, #main h6 {
+  font-family: 'Droid Serif', serif;
+}
+
+#main {
+  /*margin: 2% 0;*/
+  font-family: 'Lucida grande', serif;
+}
+
+/*#main article.card header.extra.content { background: #eee; }*/
+#main article.card footer.extra.content { background: #eed; }
+#main article.card .header {  }
+#main article.card .category {
+  color: #bb9;
+  text-transform: none;
+  font-weight: normal;
+}
+#main article.card .summary {
+  font-size: 1.2em;
+  line-height: 1.6em;
+  color: #667;
+}
+
+#illustration {
+  max-width: 100%;
+}
+/* article seul */
+
+#article {
+  font-size: 1.3em;
+  line-height: 1.7em;
+  color: #667;
+}
+#article .header {
+
+}
+/*#article p, #article li {
+  line-height: inherit;
+  margin-bottom: 2.3em;
+}*/
+
+#article .content a, article.card .summary a {
+  color: inherit;
+  border-bottom: dotted 0.2em #ddc;
+}
+
+footer.bottom.attached.menu {
+  background: #eed;
+}
+
+blockquote {
+  border: dashed 2px #bb9;
+  margin: 1em 0;
+  padding: 1em;
+}
+
+p {
+  line-height: inherit;
+}
+
+li {
+  line-height: inherit;
+  margin-bottom: 0.8em;
+}
+
+/* TODO titres */
+
+/* code / syntax highlighting
+http://elfnor.com/pelican-and-markdown-styling-cheat-sheet.html
+http://alexpeattie.com/blog/github-style-syntax-highlighting-with-pygments/
+
+TODO syntaxe / couleurs depuis atom one dark ui
+https://github.com/atom/one-dark-ui/tree/master/styles
+
+cyan #56b6c2; fonctions, decorateurs
+blue  #61afef;
+purple #c678dd; keywords
+green  #98c379; chaines
+red 1 #e06c75;
+red 2 #be5046;
+orange1 #d19a66; classes
+orange2  #e5c07b; noms
+
+*/
+
+
+
+code {
+  background-color: #282c34;
+  color: #abb2bf;
+  padding: 0 0.3em;
+}
+
+pre {
+  border: 1px solid #171c26;
+  background-color: #282c34;
+  color: #abb2bf;
+  padding: 0 0.3em;
+  font-size: 0.9em;
+}
+
+/* comments */
+pre .c, pre .c1, pre .cm {
+  color: #5c6370;
+  font-style: italic;
+}
+
+/* balises / règles css */
+pre .nt {
+  color: #e06c75;
+}
+
+/* node attributes */
+pre .na {
+  color: #d19a66;
+}
+
+/* constantes */
+pre .nb {
+  color: #d19a66;
+}
+
+/* variables */
+pre .nv {
+  color: #e06c75;
+}
+
+/* php classes hors declaration */
+pre .nx {
+  color: #e5c07b;
+}
+
+/* clefs */
+pre .k, pre .kn, pre .kd, pre .ow {
+  color: #c678dd;
+}
+
+/* strings */
+pre .s , pre .s1, pre .sx, pre .sd {
+  color: #98c379;
+}
+/* python antislash */
+pre .se {
+  color: #56b6c2;
+}
+
+/* valeurs */
+pre .m {
+  color: #d19a66;
+}
+/* JS true */
+pre .kc {
+  color: #d19a66;
+}
+/* math int ?, float, hexa */
+pre .mi, pre .mf, pre .mh {
+  color: #d19a66;
+}
+/* regex search JS */
+pre .sr {
+  color: #56b6c2;
+}
+
+/* CSS : classes */
+pre .nc {
+  color: #e5c07b;
+}
+
+/* arguments */
+pre .n {
+  color: #d19a66;;
+}
+/* python lib */
+pre .nn {
+  color: #be5046;
+}
+
+/* CSS id, python function */
+pre .nf {
+  color: #56b6c2;
+}
+
+/* CSS pseudo */
+pre .nd {
+  color: #d19a66;
+}
+
+/* XML entites */
+pre .ni {
+  color: #e5c07b;
+}
+
+/* python self */
+pre .bp {
+  color: #e06c75;
+}
+
+/* PHP balises php */
+pre .cp {
+  color: #be5046;
+}
+
+/* YAML scalar */
+pre .l-Scalar-Plain {
+  color: #e06c75;
+}

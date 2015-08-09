@@ -1,0 +1,54 @@
+{# navigation globale #}
+<aside id="global" class="two wide computer column">
+{% if DISPLAY_CATEGORIES_ON_MENU %}
+  <div class="ui horizontal divider">
+    <i class="folder icon"></i>
+  </div>
+  <nav class="ui vertical secondary icon menu">
+    {% for cat, articles in categories %}
+    {% if cat==category %}
+    <a href="/{{ cat.url }}" class="active item">{{ cat }}</a>
+    {% else %}
+    <a href="/{{ cat.url }}" class="item">{{ cat }}</a>
+    {% endif %}
+    {% endfor %}
+  </nav>
+{% endif %}
+
+  <div class="ui horizontal divider">
+    <i class="file icon"></i>
+  </div>
+
+  <nav class="ui vertical secondary icon menu">
+    {% for p in pages %}
+    {% if page and p==page %}
+    <a href="/{{ p.url }}" class="active item">{{ p.title }}</a>
+    {% else %}
+    <a href="/{{ p.url }}" class="item">{{ p.title }}</a>
+    {% endif %}{% endfor %}
+  </nav>
+
+  <div class="ui horizontal divider">
+    <i class="share alternate icon"></i>
+  </div>
+
+  <nav class="ui vertical secondary icon menu">
+    {#}{% if FEED_ALL_ATOM %}
+    <a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate" class="item">
+      <i class="large feed icon"></i>
+    </a>
+    {% endif %}#}
+  {% for name, link in SOCIAL %}
+    <a href="{{ link }}" class="item"><i class="large {{ name }} icon"></i></a>{% endfor %}
+  </nav>
+
+  <div class="ui horizontal divider">
+    <i class="pointing down icon"></i>
+  </div>
+
+  <nav class="ui vertical secondary icon menu">
+  {% for name, link in LINKS %}
+      <a href="{{ link }}" class="item">{{ name }}</a>
+  {% endfor %}
+  </nav>
+</aside>

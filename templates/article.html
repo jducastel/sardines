@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block title %}{{ article.title }}{% endblock title %}
+
+{% block local %}
+{# aside content #}
+{% block local_aside %}
+<aside id="local-aside" class="six wide computer four wide tablet column">
+  {#}<span class="ui horizontal divider"><i class="location arrow icon"></i></span>
+  <nav class="ui fluid secondary menu">
+    <a href="{{ SITEURL }}/" class="header item"><i class="home icon"></i></a>
+    <a href="{{ SITEURL }}/{{ article.category.url }}" class="item">
+      <i class="folder icon"></i>{{ article.category }}
+    </a>
+  </nav>{#}
+  {% if article.metadata.image %}
+  <span class="ui horizontal divider"><i class="picture icon"></i></span>
+  <img id="illustration" class="ui image" src="{{ article.metadata.image }}" />
+  {% endif %}
+  <div class="ui large horizontal divider"><i class="calendar outline icon"></i></div>
+  <p class="text item">{{ article.locale_date }}</p>
+
+  {% if article.tags %}
+  <div class="ui horizontal divider"><i class="tags icon"></i></div>
+  <nav class="ui secondary menu">
+  {% for tag in article.tags %}
+  <a href="/{{ tag.url }}" class="item">{{ tag | escape }}</a>{% endfor %}
+  </nav>
+  {% endif %}
+
+  {# TODO : fix author index etc #}
+  <div class="ui horizontal divider">
+    <i class="user icon"></i>
+  </div>
+  <nav class="ui secondary fluid vertical menu">
+  {% for author in article.authors %}
+    <a class="item" href="/{{ author.url }}">{{ author }}</a>
+  {% endfor %}
+  </nav>
+
+</aside>
+{% endblock local_aside %}
+
+{# main content #}
+{% block main %}
+<main id="main" class="ui eight wide computer ten wide tablet column">
+
+  <article id="article" class="ui top attached segment">
+    <h1 class="ui header">{{ article.title }}</h1>
+    <section class="content">
+      {{ article.content }}
+    </section>
+
+    {% if TWITTER_USERNAME and False %}
+    <a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="{{TWITTER_USERNAME}}">Tweet</a><script type="text/javascript" src="https://platform.twitter.com/widgets.js"></script>
+    {% endif %}
+  </article>
+
+  {# liens via http://www.sharelinkgenerator.com #}
+  <footer class="ui bottom attached menu">
+    <span class="header item">Partager</span>
+    <a href="https://twitter.com/home?status={{ article.title }}%20{{ SITEURL }}/{{ article.url }}" class="item" title="tweeter">
+      <i class="twitter icon"></i> </a>
+    <a href="https://plus.google.com/share?url={{ SITEURL }}/{{ article.url }}" class="item" title="google+">
+      <i class="google plus icon"></i> </a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u={{ SITEURL }}/{{ article.url }}" class="item" title="facebook">
+      <i class="facebook icon"></i> </a>
+      {# https://www.linkedin.com/shareArticle?mini=true&amp;url={{ SITEURL }}/{{ article.url }}&amp;title={{ article.title }}&amp;summary={{ article.summary }} #}
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url={{ SITEURL }}/{{ article.url }}&amp;title={{ article.title }}" class="item" title="linkedin">
+      <i class="linkedin icon"></i> </a>
+    <a href="mailto:?&amp;subject={{ article.title }}&amp;body={{ SITEURL }}/{{ article.url }}" class="item">
+      <i class="mail icon"></i></a>
+  </footer>
+</main>
+{% endblock main %}
+
+{% endblock local %}

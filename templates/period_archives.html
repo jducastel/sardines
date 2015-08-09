@@ -1,0 +1,27 @@
+{% extends "index.html" %}
+
+{% block breadcrumb %}
+<a href="/" class="item"><i class="home icon"></i></a>
+{% if period|length==2 %}
+<a class="item" href="/{{ period[0] }}/"><i class="calendar icon"></i> {{ period[0] }}</a>
+<span class="active item"><i class="calendar outline icon"></i> {{ period[1] }}</span>
+{% else %}
+<a class="active item" href="/{{ period[0] }}/"><i class="calendar icon"></i> {{ period[0] }}</a>
+{% endif %}
+{% endblock breadcrumb %}
+
+{% block pagination %}{% endblock pagination %}
+
+{% block local_content %}
+{% if articles %}{# contenu principal : cartes articles #}
+  <main id="main" class="ui cards">{% for article in dates %}
+    {% include "inc/article-card.html" %}{% endfor %}
+  </main>
+{% else %}
+<main class="">
+  <article class="ui segment">
+    <p>Nothing yet !</p>
+  </article>
+</main>
+{% endif %}
+{% endblock %}

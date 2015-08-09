@@ -1,0 +1,37 @@
+<article class="card">
+  {#}<header class="extra content">
+    <a class="meta category" href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
+  </header>#}
+  <section class="content">
+    <a class="header" href="/{{ article.url }}">{{ article.title }}</a>
+    {# TODO : si systeme d'icones par categorie, remplacer l'icone ici #}
+    {% if category %}
+    <div class="ui horizontal divider">
+      <i class="folder icon"></i>
+    </div>
+    {% else %}
+    <a class="ui horizontal divider category" href="/{{ article.category.url }}">
+      <i class="folder icon"></i> {{ article.category }}
+    </a>
+    {% endif %}
+    <section class="summary">
+    {{ article.summary }}
+    </section>
+  </section>
+  {% if article.metadata.image %}
+  <div class="image">
+    <img src="{{ article.metadata.image }}" />
+  </div>
+  {% else %}
+  {#}<div class="center aligned">
+    <i class="large circular leaf icon"></i>
+  </div>#}
+  {% endif %}
+  <footer class="extra content">
+    <a href="/{{ article.url }}"><i class="angle double right icon"></i> lire</a>
+    <!--<span class="right floated">{{ article.locale_date }}</span>-->
+    <a href="https://getpocket.com/save?url={{ SITEURL }}/{{ article.category.url }}" title="Save to pocket" class="right floated">
+      <i class="cloud upload icon"></i> pocket
+    </a>
+  </footer>
+</article>

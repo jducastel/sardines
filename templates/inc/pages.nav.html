@@ -1,0 +1,10 @@
+
+<div class="ui horizontal divider"><i class="file icon"></i></div>
+<nav class="ui large vertical fluid secondary menu">{% for p in PAGES %}
+  {% if page and p.slug == page.slug %}
+  <a href="{{ SITEURL }}/{{ p.url }}" class="active item">{{ p.title }}</a>
+  {% else %}
+  <a href="{{ SITEURL }}/{{ p.url }}" class="item">{{ p.title }}</a>
+  {% endif %}
+  {% endfor %}
+</nav>

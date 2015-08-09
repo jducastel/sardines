@@ -1,0 +1,20 @@
+{% extends "index.html" %}
+
+{% block title %}{{ category }} | {{ SITENAME }}{% endblock %}
+
+{% block breadcrumb %}
+<a href="/" class="item"><i class="home icon"></i></a>
+<span class="active item" data-content="{{ category }}"><i class="folder icon"></i> {{ category }}</span>
+{% endblock %}
+
+{% block feeds %}
+{% if CATEGORY_FEED_ATOM %}{# TO DO : formatage ur categorie #}
+<a href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_ATOM | format(category) }}" type="application/atom+xml" rel="alternate" class="item">
+  <i class="folder icon"></i><i class="feed icon"></i>
+</a>
+{% elif CATEGORY_FEED_RSS %}
+<a href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_RSS | format(category) }}" type="application/rss+xml" rel="alternate" class="item">
+  <i class="folder icon"></i><i class="feed icon"></i>
+</a>
+{% endif %}
+{% endblock %}

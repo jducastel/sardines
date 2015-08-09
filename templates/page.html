@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }} | {{ SITENAME }}{% endblock %}
+
+{% block local %}
+
+{% block local_aside %}
+  <aside class="five wide column">
+    <div class="ui horizontal divider"><i class="location arrow icon"></i></div>
+    <nav class="ui large secondary menu">
+      <a href="{{ SITEURL }}/" class="header item"><i class="home icon"></i></a>
+      <a class="item" href="{{ page.url }}"><i class="file icon"></i> {{ page.title }}</a>
+    </nav>
+    {#}{% include "inc/pages.nav.html" %}#}
+  </aside>
+{% endblock %}
+
+{% block main %}<main class="nine wide column">
+<article class="ui segment">
+  <h1 class="entry-title">{{ page.title }}</h1>
+  {% import 'translations.html' as translations with context %}
+  {{ translations.translations_for(page) }}
+  {{ page.content }}
+</article>
+</main>
+{% endblock %}
+
+{% endblock %}

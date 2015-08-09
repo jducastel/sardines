@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}{% if category %}{% elif tag %}{{ tag }} | {{ SITENAME }}{% else %}{{ SITENAME }}{% endif %}{% endblock %}
+
+{% block local %}<div id="local" class="fourteen wide computer column">
+{# local navigation : 1 semantic-ui menu, three jinja blocks :
+  - breadcrumb links items
+  - pagination links
+  - feeds links
+#}
+<nav id="local-nav" class="ui secondary menu">
+  <span class="header item">
+    <i class="location arrow icon"></i>
+  </span>
+  {% block breadcrumb %}
+  <a href="/" class="active item"><i class="home icon"></i></a>
+  {% endblock %}
+
+  {% block pagination %}
+  {% if articles_page.has_previous() %}
+  <a href="/{{ articles_previous_page.url }}" class="item"><i class="backward icon"></i></a>
+  {% else %}
+  <span class="disabled item"><i class="backward icon"></i></span>
+  {% endif %}
+  <span class="text item">{{ articles_page.number }} / {{ articles_paginator.num_pages }}</span>
+  {% if articles_page.has_next() %}
+  <a href="/{{ articles_next_page.url }}" class="item"><i class="forward icon"></i></a>
+  {% else %}
+  <span class="disabled item"><i class="forward icon"></i></span>
+  {% endif %}
+  {% endblock %}{# end pagination items #}
+
+  {% block feeds %}
+  {% if FEED_ALL_ATOM %}
+  <a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate" class="item" title="full atom feed">
+    <i class="feed icon"></i>
+  </a>
+  {% elif FEED_ALL_RSS %}
+  <a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}"  type="application/rss+xml" rel="alternate" class="item" title="full RSS feed">
+    <i class="feed icon"></i>
+  </a>
+  {% endif %}
+  {% endblock %}
+</nav>
+
+{# local content #}
+{% block local_content %}
+{% include "inc/article-cards.main.html" %}
+{% endblock %}
+
+</div>{% endblock %}{# end block local #}
