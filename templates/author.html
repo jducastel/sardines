@@ -1,11 +1,11 @@
 {% extends "index.html" %}
 
-{% block title %}{{ author }} | {{ SITENAME }}{% endblock %}
+{% block title %}{{ author }} | {{ SITENAME }}{% endblock title %}
 
 {% block breadcrumb %}
 <a href="/" class="item"><i class="home icon"></i></a>
 <span class="active item" data-content="{{ tag }}"><i class="user icon"></i> {{ author }}</span>
-{% endblock %}
+{% endblock breadcrumb %}
 
 {% block feeds %}
 {% if AUTHOR_FEED_ATOM %}{# TO DO : formatage ur categorie #}
@@ -17,4 +17,4 @@
   <i class="user icon"></i><i class="feed icon"></i>
 </a>
 {% endif %}
-{% endblock %}
+{% endblock feeds %}

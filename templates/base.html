@@ -22,29 +22,30 @@
 
 </head>
 {# TODO indentation, commentaires #}
-{# FIXME appels javascript ko ? #}
 <body>{% block body %}
   <div id="grid" class="ui stackable grid">
-{% block header %}<header id="header" class="sixteen wide column">
-  <a href="/" class="ui header title">
-    {{ SITENAME }}
-    {% if SITESUBTITLE %}<small class="subtitle">{{ SITESUBTITLE }}</small>{% endif %}
-  </a>
-</header>
-{% endblock %}
+    {% block header %}<header id="header" class="sixteen wide column">
+      <a href="/" class="ui header title">
+        {{ SITENAME }}
+        {% if SITESUBTITLE %}<small class="subtitle">{{ SITESUBTITLE }}</small>{% endif %}
+      </a>
+    </header>
+    {% endblock header %}
 
-{# pages (changing) content #}
-{% block local %}<div id="local" class="fourteen wide computer column">
-  <article class="ui segment">
-    <p>hello content</p>
-  </article>
-</div>{% endblock %}
-{# global / fixed content #}
-{% block global %}
-{% include "inc/global-navs.aside.html" %}
-{% endblock %}
-{% endblock %}</div>{# end grid #}
-<script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/jquery/jquery.min.js"></script>
-<script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/semantic-ui/semantic.min.js"></script>
+    {# pages (changing) content #}
+    {% block local %}<div id="local" class="fourteen wide computer twelve wide tablet column">
+      <article class="ui segment">
+        <p>hello content</p>
+      </article>
+    </div>{% endblock local %}
+    {# global / fixed content #}
+    {% block global %}
+    {% include "inc/global-navs.aside.html" %}
+    {% endblock global %}
+  </div>{% endblock body %}
+
+  {# FIXME appels javascript ko ? #}
+  {#}<script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/jquery/jquery.min.js"></script>
+  <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/semantic-ui/semantic.min.js"></script>#}
 </body>
 </html>

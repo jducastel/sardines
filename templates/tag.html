@@ -1,11 +1,11 @@
 {% extends "index.html" %}
 
-{% block title %}{{ tag }} | {{ SITENAME }}{% endblock %}
+{% block title %}{{ tag }} | {{ SITENAME }}{% endblock title %}
 
 {% block breadcrumb %}
 <a href="/" class="item"><i class="home icon"></i></a>
 <span class="active item" data-content="{{ tag }}"><i class="tag icon"></i> {{ tag }}</span>
-{% endblock %}
+{% endblock breadcrumb %}
 
 {% block feeds %}
 {% if TAG_FEED_ATOM %}{# TO DO : formatage ur categorie #}
@@ -17,4 +17,4 @@
   <i class="tag icon"></i><i class="feed icon"></i>
 </a>
 {% endif %}
-{% endblock %}
+{% endblock feeds %}

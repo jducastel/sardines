@@ -1,11 +1,11 @@
 {% extends "index.html" %}
 
-{% block title %}{{ category }} | {{ SITENAME }}{% endblock %}
+{% block title %}{{ category }} | {{ SITENAME }}{% endblock title %}
 
 {% block breadcrumb %}
 <a href="/" class="item"><i class="home icon"></i></a>
 <span class="active item" data-content="{{ category }}"><i class="folder icon"></i> {{ category }}</span>
-{% endblock %}
+{% endblock breadcrumb %}
 
 {% block feeds %}
 {% if CATEGORY_FEED_ATOM %}{# TO DO : formatage ur categorie #}
@@ -17,4 +17,4 @@
   <i class="folder icon"></i><i class="feed icon"></i>
 </a>
 {% endif %}
-{% endblock %}
+{% endblock feeds %}

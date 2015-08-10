@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}{{ page.title }} | {{ SITENAME }}{% endblock %}
+{% block title %}{{ page.title }} | {{ SITENAME }}{% endblock title %}
 
 {% block local %}
 
@@ -13,16 +13,16 @@
     </nav>
     {#}{% include "inc/pages.nav.html" %}#}
   </aside>
-{% endblock %}
+{% endblock local_aside %}
 
-{% block main %}<main class="nine wide column">
-<article class="ui segment">
-  <h1 class="entry-title">{{ page.title }}</h1>
-  {% import 'translations.html' as translations with context %}
-  {{ translations.translations_for(page) }}
-  {{ page.content }}
-</article>
-</main>
-{% endblock %}
+  {% block main %}<main class="nine wide column">
+  <article class="ui segment">
+    <h1 class="entry-title">{{ page.title }}</h1>
+    {% import 'translations.html' as translations with context %}
+    {{ translations.translations_for(page) }}
+    {{ page.content }}
+  </article>
+  </main>
+  {% endblock main %}
 
-{% endblock %}
+{% endblock local %}
